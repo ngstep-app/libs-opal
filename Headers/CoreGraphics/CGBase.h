@@ -40,35 +40,18 @@
 
 #import <CoreFoundation/CoreFoundation.h>
 
-/* Missing CoreFoundation types not provided by GNUstep CoreFoundation */
-#ifndef CFNUMBER_DEFINED
-#define CFNUMBER_DEFINED
+/* Fallback CF type stubs - only needed if libs-corebase is not installed.
+   When libs-corebase is present, CoreFoundation.h already defines these. */
+#ifndef __COREFOUNDATION_CFNUMBER_H__
+/* libs-corebase not available, define stub types */
 typedef const void * CFNumberRef;
-#endif
-#ifndef CFSET_DEFINED
-#define CFSET_DEFINED
 typedef const void * CFSetRef;
 typedef void * CFMutableSetRef;
-#endif
-#ifndef CFDATE_DEFINED
-#define CFDATE_DEFINED
 typedef const void * CFDateRef;
-#endif
-#ifndef CF_ENUM_COMPARISON_RESULT
-#define CF_ENUM_COMPARISON_RESULT
 typedef CFIndex CFComparisonResult;
-#endif
-#ifndef CFCHARACTERSET_DEFINED
-#define CFCHARACTERSET_DEFINED
 typedef const void * CFCharacterSetRef;
-#endif
-#ifndef CFATTRIBUTEDSTRING_DEFINED
-#define CFATTRIBUTEDSTRING_DEFINED
 typedef const void * CFAttributedStringRef;
 typedef void * CFMutableAttributedStringRef;
-#endif
-#ifndef CFERROR_DEFINED
-#define CFERROR_DEFINED
 typedef const void * CFErrorRef;
 #endif
 
