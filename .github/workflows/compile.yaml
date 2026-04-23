@@ -7,6 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+      with:
+        path: libs-opal
     - name: Prepare
       run: |
         sudo apt-get update
@@ -15,11 +17,12 @@ jobs:
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/gnustep/tools-scripts/master/gnustep-web-install)"
     - name: Install GNUstep Corebase
       run: |
-        cd gnustep/libs-corebase 
+        cd gnustep/libs-corebase
         ./configure
         . /usr/GNUstep/System/Library/Makefiles/GNUstep.sh
         sudo PATH=$PATH make install
     - name: Compile lib-opal
+      working-directory: libs-opal
       run: |
         . /usr/GNUstep/System/Library/Makefiles/GNUstep.sh
         make distclean
